@@ -1,17 +1,17 @@
 let questions = [
     {
-        "title": "Test question title",
-        "choices": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        "answer": "Answer 1"
+        "title": "Inside which HTML element do we put the JavaScript?",
+        "choices": ["<scripting>", "<js>", "<script>", "<javascript>"],
+        "answer": "<script>"
     },
     {
-        "title": "Test question title 2",
-        "choices": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        "answer": "Answer 2"
+        "title": "Which of the following is NOT a Javascript data type?",
+        "choices": ["Number", "Long Int", "String", "NULL"],
+        "answer": "Long Int"
     },
     {
-        "title": "Test question title 3",
-        "choices": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        "answer": "Answer 3"
+        "title": "Which part of the HTML code should you declare your javascript sources?",
+        "choices": ["End of <body>", "Beginning of <body>", "<head>", "<footer"],
+        "answer": "End of <body>"
     }
 ]
