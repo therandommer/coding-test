@@ -1,6 +1,7 @@
 //---quiz state variables---
 let currentQuestionIndex = 0; //used to reference the question array.
 let timePerQuestion = 20; //modify this to make the game more or less difficult.
+let timePenalty = 10; //subtracts this amount of time each time the user makes a mistake
 let time = questions.length * timePerQuestion; //used for the countdown function
 let timerID = 0;
 
@@ -19,6 +20,7 @@ let wrongSound = new Audio("assets/sfx/incorrect.wav");
 
 //---Functionality of application---
 
+//displays the current question in the questions[] array
 function getQuestion()
 {
     let currentQuestion = questions[currentQuestionIndex]; //will get the current question to be iterated upon elsewhere.
@@ -42,11 +44,29 @@ function getQuestion()
     })
 }
 
+//checks if the answer clicked is correct or not
 function questionClick()
 {
+    if(this.value != questions[currentQuestionIndex].answer) //if answer is wrong
+    {
+        time -= timePenalty;
+        if(time<0) //checks if time would be negative as a result of penalty
+        {
+            time = 0; //prevents negative display
+        }
+        timerElement.textContent = time; //updates the timer to the new correct time.
 
+        feedbackElement.textContent = "Wrong answer"; //displays that it was the wrong answer to the user.
+        wrongSound.play(); //plays incorrect sfx
+    }
+    else //if answer is correct
+    {
+        feedbackElement.textContent = "Correct answer!"; //displays that it was the correct answer to the user.
+        correctSound.play(); //plays correct sfx
+    }
 }
 
+//handles end of quiz logic
 function quizEnd()
 {
     clearInterval(timerID); //stops countdown
@@ -59,6 +79,7 @@ function quizEnd()
     questionsElement.setAttribute("class", "hide"); //hides the questions element
 }
 
+//ticks down the timer once every interval
 function timer()
 {
     time --;
@@ -69,6 +90,7 @@ function timer()
     }
 }
 
+//start of quiz logic
 function startQuiz()
 {
     let startScreenElement = document.getElementById("start-screen");
@@ -81,6 +103,7 @@ function startQuiz()
     getQuestion(); //getting the questions from questions.js to display on the quiz.
 }
 
+//save the high score (time remaining) to local memory
 function saveHighScore()
 {
 
