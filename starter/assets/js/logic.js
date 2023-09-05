@@ -16,3 +16,41 @@ let feedbackElement = document.getElementById("feedback");
 //---Audio Element---
 let correctSound = new Audio("assets/sfx/correct.wav");
 let wrongSound = new Audio("assets/sfx/incorrect.wav");
+
+//---Functionality of application---
+function getQuestion()
+{
+
+}
+
+function questionClick()
+{
+
+}
+
+function startQuiz()
+{
+    alert("Quiz started");
+}
+
+function quizEnd()
+{
+
+}
+
+function timer()
+{
+
+}
+
+function saveHighScore()
+{
+
+}
+
+function checkForEnter(event)
+{
+
+}
+
+startButton.addEventListener("click", startQuiz);
