@@ -139,9 +139,13 @@ function saveHighScore()
     }
 }
 
+//checks if enter is pressed as it is a common shortcut people use
 function checkForEnter(event)
 {
-
+    if(event.key === enter) 
+    {
+        saveHighScore();
+    }
 }
 
 //---Event listeners---
