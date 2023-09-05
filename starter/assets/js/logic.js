@@ -66,6 +66,22 @@ function questionClick()
     }
 
     feedbackElement.setAttribute("class", "feedback");
+
+    //hides the text feedback after 2 seconds
+    setTimeout(function() {
+        feedbackElement.setAttribute("class", "feedback hide");
+    }, 2000);
+    currentQuestionIndex++; //increment question index to display the next question.
+    
+    if(currentQuestionIndex >= questions.length) //ends quiz once the end of the array is reached
+    {
+        quizEnd();
+    }
+    else //if there is another question, go to the next question.
+    {
+        getQuestion(); 
+    }
+    
 }
 
 //handles end of quiz logic
