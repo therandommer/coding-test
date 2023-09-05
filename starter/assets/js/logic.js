@@ -64,6 +64,8 @@ function questionClick()
         feedbackElement.textContent = "Correct answer!"; //displays that it was the correct answer to the user.
         correctSound.play(); //plays correct sfx
     }
+
+    feedbackElement.setAttribute("class", "feedback");
 }
 
 //handles end of quiz logic
