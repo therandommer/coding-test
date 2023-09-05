@@ -124,7 +124,19 @@ function startQuiz()
 //save the high score (time remaining) to local memory
 function saveHighScore()
 {
+    let initials = initialElement.value.trim(); //gets the vlaue within the text box for the initials. Trims to remove unnecessary spaces
+    if(initials !== "")
+    {
+        let highscore = JSON.parse(localStorage.getItem("highscores") || [] ); //gets the high score from local storage or sets to blank to prevent NULL or NaN from displaying
+        let newScore = {
+            score: time,
+            initials: initials
+        }
+        highscores.push(newScore);
+        localStorage.setItem("highscores", JSON.stringify(highscores)); //setting the highscores array to be written to local storage
 
+        window.location.href = "hishscores.html"; //references the new location of the data
+    }
 }
 
 function checkForEnter(event)
